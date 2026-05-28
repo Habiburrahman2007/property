@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
     <!-- Styles & Scripts (Vite) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])

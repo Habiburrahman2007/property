@@ -138,14 +138,8 @@
                     <span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant/70 text-[20px] group-focus-within:text-secondary-container transition-colors">search</span>
                     <input class="bg-surface-container-low border border-outline-variant/50 py-sm pl-xl pr-md text-body-sm font-body-sm rounded-full focus:ring-2 focus:ring-[#C9A961]/20 focus:border-[#C9A961] w-72 transition-all placeholder:text-on-surface-variant/70" id="search-input" placeholder="Cari pesan..." type="text"/>
                 </div>
-
-                <div class="flex space-x-md text-on-surface-variant">
-                    <button class="p-sm hover:bg-surface-container-low hover:text-primary rounded-full transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span></button>
-                    <button class="p-sm hover:bg-surface-container-low hover:text-primary rounded-full transition-colors"><span class="material-symbols-outlined text-[20px]">help_outline</span></button>
-                </div>
-                
                 <!-- Agent profile & Dropdown (Unified Verified Hover Fix) -->
-                <div class="relative group cursor-pointer border-l border-outline-variant/50 pl-xl flex items-center space-x-sm">
+                <div class="relative group cursor-pointer flex items-center space-x-sm">
                     <img alt="Foto Agen" class="w-10 h-10 rounded-full object-cover border border-outline-variant/50 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBKdO_nqLjkeR4IOPNSwJ_md1_4AiuIwugwHDDq2BucpefYguUm_hhKZph32rbhjrZ-ltMnmCU-8qQrg1gC-dI2ICQ0kiVKGu7wwzpi1Fn8_ld9MSSwhVU7M7rA7yfGlxtoShIIXytJ92dmw6QeaPCRaXuQBCts80hOeF92bX3fhoq4y_5eEJPH86cJUXKd2iAe6Nr7uiZsnMbiq2_iL2abk3ik9ex1c58YyuMDOOEQLPZrOdreaWpzK-y4WFMpqeLEgfs1I7ecY0"/>
                     <span class="material-symbols-outlined text-on-surface-variant text-[20px] transition-transform duration-200 group-hover:rotate-180">arrow_drop_down</span>
                     <div class="absolute right-0 top-full pt-2 w-72 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-50">

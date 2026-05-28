@@ -100,7 +100,7 @@ test('admin messages listing shows messages page when authenticated', function (
 
     // Without authentication, it redirects to login
     $response = $this->get('/admin/messages');
-    $response->assertRedirect('/login');
+    $response->assertRedirect('/agent/login');
 
     // With authentication, it renders messages
     $response = $this->withSession(['admin_user' => $adminUser])->get('/admin/messages');

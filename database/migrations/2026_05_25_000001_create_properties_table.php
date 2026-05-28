@@ -97,37 +97,42 @@ return new class extends Migration
         });
 
         // ---------------------------------------------------------
-        // `hadap` SET column — added here (outside Schema::create) so that
-        // the ALTER TABLE runs after the CREATE TABLE DDL is committed.
+        // Cross-compatible setup: MySQL raw statements vs SQLite fallback
         // ---------------------------------------------------------
-        DB::statement("ALTER TABLE `properties`
-            ADD `hadap` SET('Utara','Selatan','Timur','Barat') NOT NULL AFTER `panjang`");
+        if (DB::getDriverName() === 'sqlite') {
+            Schema::table('properties', function (Blueprint $table) {
+                $table->string('hadap')->default('Utara')->after('panjang');
+            });
+        } else {
+            // `hadap` SET column — added here (outside Schema::create) so that
+            // the ALTER TABLE runs after the CREATE TABLE DDL is committed.
+            DB::statement("ALTER TABLE `properties`
+                ADD `hadap` SET('Utara','Selatan','Timur','Barat') NOT NULL AFTER `panjang`");
 
-        // ---------------------------------------------------------
-        // CHECK constraints
-        // Raw DB::statement is used for explicit constraint names and
-        // full MySQL 8.0+ compatibility.
-        // ---------------------------------------------------------
+            // CHECK constraints
+            // Raw DB::statement is used for explicit constraint names and
+            // full MySQL 8.0+ compatibility.
+            
+            // nama_property must be between 3 and 100 characters
+            DB::statement('ALTER TABLE `properties`
+                ADD CONSTRAINT `chk_properties_nama_length`
+                CHECK (CHAR_LENGTH(`nama_property`) BETWEEN 3 AND 100)');
 
-        // nama_property must be between 3 and 100 characters
-        DB::statement('ALTER TABLE `properties`
-            ADD CONSTRAINT `chk_properties_nama_length`
-            CHECK (CHAR_LENGTH(`nama_property`) BETWEEN 3 AND 100)');
+            // lebar must be a positive value
+            DB::statement('ALTER TABLE `properties`
+                ADD CONSTRAINT `chk_properties_lebar_positive`
+                CHECK (`lebar` > 0)');
 
-        // lebar must be a positive value
-        DB::statement('ALTER TABLE `properties`
-            ADD CONSTRAINT `chk_properties_lebar_positive`
-            CHECK (`lebar` > 0)');
+            // panjang must be a positive value
+            DB::statement('ALTER TABLE `properties`
+                ADD CONSTRAINT `chk_properties_panjang_positive`
+                CHECK (`panjang` > 0)');
 
-        // panjang must be a positive value
-        DB::statement('ALTER TABLE `properties`
-            ADD CONSTRAINT `chk_properties_panjang_positive`
-            CHECK (`panjang` > 0)');
-
-        // tingkat must be within 1.0 – 10.0
-        DB::statement('ALTER TABLE `properties`
-            ADD CONSTRAINT `chk_properties_tingkat_range`
-            CHECK (`tingkat` BETWEEN 1.0 AND 10.0)');
+            // tingkat must be within 1.0 – 10.0
+            DB::statement('ALTER TABLE `properties`
+                ADD CONSTRAINT `chk_properties_tingkat_range`
+                CHECK (`tingkat` BETWEEN 1.0 AND 10.0)');
+        }
     }
 
     /**
