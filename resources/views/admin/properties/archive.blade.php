@@ -5,111 +5,18 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Arsip Properti - Prime Property Superadmin</title>
     
-    <!-- Tailwind CSS with forms -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    
-    <!-- Google Fonts & Custom Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "error": "#ba1a1a",
-                        "outline": "#747878",
-                        "on-tertiary-fixed": "#410005",
-                        "secondary-fixed": "#ffdf9b",
-                        "surface-container-highest": "#e2e2e2",
-                        "on-background": "#1a1c1c",
-                        "surface-bright": "#f9f9f9",
-                        "primary-container": "#1c1b1b",
-                        "surface-tint": "#5f5e5e",
-                        "on-tertiary-fixed-variant": "#891b20",
-                        "surface-container": "#eeeeee",
-                        "on-surface": "#1a1c1c",
-                        "primary-fixed": "#e5e2e1",
-                        "outline-variant": "#c4c7c7",
-                        "on-tertiary-container": "#dc5856",
-                        "on-surface-variant": "#444748",
-                        "background": "#f9f9f9",
-                        "surface-container-low": "#f3f3f4",
-                        "on-tertiary": "#ffffff",
-                        "tertiary": "#000000",
-                        "on-primary": "#ffffff",
-                        "inverse-on-surface": "#f0f1f1",
-                        "inverse-primary": "#c8c6c5",
-                        "surface-dim": "#dadada",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-variant": "#e2e2e2",
-                        "on-secondary-fixed": "#251a00",
-                        "secondary": "#745b1b",
-                        "error-container": "#ffdad6",
-                        "surface-container-high": "#e8e8e8",
-                        "on-error": "#ffffff",
-                        "secondary-container": "#ffdc8e",
-                        "on-secondary-fixed-variant": "#5a4302",
-                        "tertiary-container": "#410005",
-                        "secondary-fixed-dim": "#e4c278",
-                        "on-secondary-container": "#795f1f",
-                        "tertiary-fixed-dim": "#ffb3af",
-                        "surface": "#f9f9f9",
-                        "inverse-surface": "#2f3131",
-                        "tertiary-fixed": "#ffdad7",
-                        "primary": "#000000",
-                        "on-primary-fixed": "#1c1b1b",
-                        "primary-fixed-dim": "#c8c6c5",
-                        "on-primary-container": "#858383",
-                        "on-secondary": "#ffffff",
-                        "on-primary-fixed-variant": "#474746",
-                        "on-error-container": "#93000a"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "xs": "4px",
-                        "xl": "32px",
-                        "sm": "8px",
-                        "gutter": "24px",
-                        "container-margin": "64px",
-                        "md": "16px",
-                        "lg": "24px"
-                    },
-                    "fontFamily": {
-                        "body-sm": ["Geist"],
-                        "display-lg-mobile": ["Geist"],
-                        "headline-md-mobile": ["Geist"],
-                        "body-lg": ["Geist"],
-                        "headline-md": ["Geist"],
-                        "label-uppercase": ["Geist"],
-                        "display-lg": ["Geist"],
-                        "code-sm": ["Geist"],
-                        "title-sm": ["Geist"]
-                    },
-                    "fontSize": {
-                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
-                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-                        "headline-md-mobile": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
-                        "body-lg": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
-                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
-                        "label-uppercase": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-                        "code-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "500" }],
-                        "title-sm": ["20px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500" }]
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
+    <!-- Styles & Scripts (Vite) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }

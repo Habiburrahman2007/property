@@ -5,13 +5,17 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>@yield('title', 'Prime Property - Luxury Real Estate')</title>
     
-    <!-- Tailwind CSS with form plugins -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+
+    <!-- Styles & Scripts (Vite) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     
-    <!-- Google Fonts & Custom Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
     <!-- Tailwind Config -->
     <script id="tailwind-config">
@@ -286,8 +290,10 @@
 
             <!-- Mobile Menu Toggle -->
             <div class="md:hidden">
-                <button onclick="toggleMobileMenu()" class="text-primary hover:text-secondary transition-colors focus:outline-none flex items-center justify-center">
-                    <span class="material-symbols-outlined text-[28px]" id="mobile-menu-icon">menu</span>
+                <button onclick="toggleMobileMenu()" class="text-primary hover:text-secondary transition-colors focus:outline-none flex items-center justify-center p-2" aria-label="Toggle Menu">
+                    <svg id="mobile-menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
         </div>
@@ -356,25 +362,38 @@
             const icon = document.getElementById('mobile-menu-icon');
             if (menu.classList.contains('hidden')) {
                 menu.classList.remove('hidden');
-                icon.textContent = 'close';
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
             } else {
                 menu.classList.add('hidden');
-                icon.textContent = 'menu';
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
             }
         }
 
-        // Navbar scroll effect
+        // Navbar scroll effect (Optimized with requestAnimationFrame)
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.getElementById('public-navbar');
             if (nav) {
-                function handleScroll() {
-                    if (window.scrollY > 20) {
+                let lastScrollY = window.scrollY;
+                let ticking = false;
+
+                function updateNavbar() {
+                    if (lastScrollY > 20) {
                         nav.classList.add('scrolled');
                     } else {
                         nav.classList.remove('scrolled');
                     }
+                    ticking = false;
                 }
-                window.addEventListener('scroll', handleScroll);
+
+                function handleScroll() {
+                    lastScrollY = window.scrollY;
+                    if (!ticking) {
+                        window.requestAnimationFrame(updateNavbar);
+                        ticking = true;
+                    }
+                }
+                
+                window.addEventListener('scroll', handleScroll, { passive: true });
                 handleScroll();
             }
         });
