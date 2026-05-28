@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- Google Fonts & Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
     <!-- Tailwind Config -->
     <script id="tailwind-config">
@@ -87,15 +87,15 @@
               "md": "16px"
             },
             "fontFamily": {
-              "display-lg-mobile": ["Geist"],
-              "body-lg": ["Geist"],
-              "headline-md-mobile": ["Geist"],
-              "body-sm": ["Geist"],
-              "headline-md": ["Geist"],
-              "title-sm": ["Geist"],
-              "label-uppercase": ["Geist"],
-              "code-sm": ["Geist"],
-              "display-lg": ["Geist"]
+              "display-lg-mobile": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-md-mobile": ["Inter"],
+              "body-sm": ["Inter"],
+              "headline-md": ["Inter"],
+              "title-sm": ["Inter"],
+              "label-uppercase": ["Inter"],
+              "code-sm": ["Inter"],
+              "display-lg": ["Inter"]
             },
             "fontSize": {
               "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],

@@ -6,8 +6,8 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Geist', 'Montserrat', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-heading: 'Geist', 'Nexa', 'Montserrat', sans-serif;
+    --font-sans: 'Inter', 'Montserrat', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-heading: 'Inter', 'Nexa', 'Montserrat', sans-serif;
 
     /* Custom Colors from Dashboard */
     --color-error: #ba1a1a;
@@ -68,15 +68,15 @@
     --spacing-lg: 24px;
 
     /* Custom Font Families */
-    --font-body-sm: 'Geist';
-    --font-display-lg-mobile: 'Geist';
-    --font-headline-md-mobile: 'Geist';
-    --font-body-lg: 'Geist';
-    --font-headline-md: 'Geist';
-    --font-label-uppercase: 'Geist';
-    --font-display-lg: 'Geist';
-    --font-code-sm: 'Geist';
-    --font-title-sm: 'Geist';
+    --font-body-sm: 'Inter';
+    --font-display-lg-mobile: 'Inter';
+    --font-headline-md-mobile: 'Inter';
+    --font-body-lg: 'Inter';
+    --font-headline-md: 'Inter';
+    --font-label-uppercase: 'Inter';
+    --font-display-lg: 'Inter';
+    --font-code-sm: 'Inter';
+    --font-title-sm: 'Inter';
 }
 
 @utility no-scrollbar {

@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- Google Fonts & Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     @livewireStyles
 
     <style>
@@ -329,7 +329,7 @@
                         <tr class="border-b border-outline-variant/30 bg-[#F9FAFB] text-on-surface-variant font-label-uppercase text-label-uppercase tracking-wider">
                             <th class="py-md px-lg font-semibold text-xs">Nama</th>
                             <th class="py-md px-lg font-semibold text-xs">Group</th>
-                            <th class="py-md px-lg font-semibold text-xs">L x P</th>
+                            <th class="py-md px-lg font-semibold text-xs w-32 min-w-[120px]">L x P</th>
                             <th class="py-md px-lg font-semibold text-xs">Hadap</th>
                             <th class="py-md px-lg font-semibold text-xs">Tipe</th>
                             <th class="py-md px-lg font-semibold text-xs text-right">Tingkat</th>
@@ -345,7 +345,7 @@
                             <tr class="hover:bg-surface-container-lowest/50 transition-colors group cursor-pointer border-b border-outline-variant/20 {{ $index % 2 == 0 ? 'bg-white' : 'bg-[#F9FAFB]/50' }}" onclick="openPropertyDetail({{ $property->id }})">
                                 <td class="py-md px-lg font-medium text-[#1A1A1A]">{{ $property->nama_property }}</td>
                                 <td class="py-md px-lg text-on-surface-variant">{{ $property->group_name ?? '-' }}</td>
-                                <td class="py-md px-lg text-on-surface-variant">{{ round($property->lebar) }} x {{ round($property->panjang) }}</td>
+                                <td class="py-md px-lg text-on-surface-variant w-32 min-w-[120px]">{{ round($property->lebar) }} x {{ round($property->panjang) }}</td>
                                 <td class="py-md px-lg text-on-surface-variant">{{ $property->hadap }}</td>
                                 <td class="py-md px-lg text-on-surface-variant">{{ $property->tipe }}</td>
                                 <td class="py-md px-lg text-right text-on-surface-variant">{{ round($property->tingkat) }}</td>
