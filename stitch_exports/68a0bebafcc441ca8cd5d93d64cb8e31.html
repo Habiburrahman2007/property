@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Message Detail View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.0.0/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.0.0/fonts/geist-sans/Geist-Medium.woff2') format('woff2');
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.0.0/fonts/geist-sans/Geist-SemiBold.woff2') format('woff2');
+            font-weight: 600;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.0.0/fonts/geist-sans/Geist-Bold.woff2') format('woff2');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/npm/geist@1.0.0/fonts/geist-sans/Geist-Black.woff2') format('woff2');
+            font-weight: 900;
+        }
+        body {
+            font-family: 'Geist', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#747878",
+                        "secondary-container": "#ffdc8e",
+                        "on-tertiary-fixed": "#410005",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary-container": "#795f1f",
+                        "surface": "#f9f9f9",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#f0f1f1",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#dc5856",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474746",
+                        "tertiary-fixed": "#ffdad7",
+                        "on-secondary-fixed": "#251a00",
+                        "surface-bright": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdf9b",
+                        "secondary": "#745b1b",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#5a4302",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#1c1b1b",
+                        "secondary-fixed-dim": "#e4c278",
+                        "inverse-surface": "#2f3131",
+                        "background": "#f9f9f9",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-dim": "#dadada",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "tertiary-container": "#410005",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary-container": "#858383",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-fixed-variant": "#891b20",
+                        "on-background": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "container-margin": "64px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "title-sm": ["Geist"],
+                        "headline-md-mobile": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "code-sm": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "label-uppercase": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "title-sm": ["20px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500" }],
+                        "headline-md-mobile": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "code-sm": ["13px", { "lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-uppercase": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- Background Inbox (Simulated for context) -->
+<div class="flex-1 p-xl ml-64 bg-surface-container-low min-h-screen overflow-y-auto">
+<h1 class="font-headline-md text-headline-md mb-xl">Messages</h1>
+<div class="space-y-sm">
+<!-- Simulated Inbox Items -->
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant/30 opacity-50 flex items-center justify-between">
+<div>
+<p class="font-title-sm text-title-sm">Michael Jenkins</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Saya tertarik dengan unit di Villa...</p>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">24 Oct</span>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant/30 opacity-50 flex items-center justify-between">
+<div>
+<p class="font-title-sm text-title-sm">Sarah Connor</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Viewing confirmation for next week.</p>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">23 Oct</span>
+</div>
+</div>
+</div>
+<!-- Overlay -->
+<div class="fixed inset-0 bg-primary/20 z-40 transition-opacity duration-300"></div>
+<!-- Side Drawer (Message Detail View) -->
+<aside class="fixed inset-y-0 right-0 w-full md:w-1/2 bg-surface-container-lowest z-50 flex flex-col shadow-[-10px_0_30px_rgba(0,0,0,0.05)] transform transition-transform duration-300 translate-x-0 border-l border-outline-variant/20">
+<!-- Header -->
+<header class="flex items-center justify-between p-xl border-b border-surface-variant">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Michael Jenkins</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">24 Oct 2023, 10:15</p>
+</div>
+<button class="p-sm hover:bg-surface-container rounded-full transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">close</span>
+</button>
+</header>
+<!-- Content Body -->
+<div class="flex-1 overflow-y-auto p-xl space-y-xl">
+<!-- Contact Block -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant/20 flex items-center justify-between group cursor-pointer hover:border-outline-variant/50 transition-colors">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline">mail</span>
+<div>
+<p class="font-label-uppercase text-label-uppercase text-on-surface-variant">Email</p>
+<p class="font-body-lg text-body-lg text-primary mt-xs">m.jenkins@email.com</p>
+</div>
+</div>
+<button aria-label="Copy Email" class="text-outline hover:text-primary transition-colors p-xs">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant/20 flex items-center justify-between group cursor-pointer hover:border-outline-variant/50 transition-colors">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-[#25D366]">chat</span>
+<div>
+<p class="font-label-uppercase text-label-uppercase text-on-surface-variant">Phone</p>
+<p class="font-body-lg text-body-lg text-primary mt-xs">+62 812 3456 789</p>
+</div>
+</div>
+<button aria-label="Open WhatsApp" class="text-outline hover:text-primary transition-colors p-xs">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Message Block -->
+<div>
+<p class="font-label-uppercase text-label-uppercase text-on-surface-variant mb-sm">Message</p>
+<div class="bg-[#F5F5F5] p-xl rounded-lg border border-outline-variant/10 text-on-surface font-body-lg text-body-lg leading-relaxed whitespace-pre-wrap">
+Saya tertarik dengan unit di Villa Senopati A1. Apakah masih tersedia untuk survey minggu depan?
+                </div>
+</div>
+<!-- Internal Notes / Tags (High-End Extra) -->
+<div class="pt-md border-t border-surface-variant border-dashed">
+<p class="font-label-uppercase text-label-uppercase text-on-surface-variant mb-sm">Status &amp; Tags</p>
+<div class="flex gap-sm">
+<span class="inline-flex items-center px-sm py-xs bg-secondary-fixed/30 text-secondary border border-secondary-fixed-dim/50 rounded-DEFAULT font-label-uppercase text-[10px]">
+                        New Lead
+                    </span>
+<span class="inline-flex items-center px-sm py-xs bg-surface-container-high text-on-surface-variant border border-outline-variant/30 rounded-DEFAULT font-label-uppercase text-[10px]">
+                        Villa Senopati A1
+                    </span>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<footer class="p-xl border-t border-surface-variant bg-surface-container-lowest flex flex-col sm:flex-row gap-sm justify-end items-center">
+<button class="w-full sm:w-auto px-md py-sm rounded-DEFAULT border border-error/50 text-error hover:bg-error/5 transition-colors font-body-sm text-body-sm flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+                Hapus Pesan
+            </button>
+<div class="flex-1 w-full sm:w-auto flex gap-sm justify-end">
+<button class="w-full sm:w-auto px-md py-sm rounded-DEFAULT border border-outline-variant text-on-surface hover:bg-surface-container transition-colors font-body-sm text-body-sm">
+                    Tandai Sudah Dibaca
+                </button>
+<button class="w-full sm:w-auto px-lg py-sm rounded-DEFAULT bg-[#C9A961] text-primary font-body-sm text-body-sm font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">mail</span>
+                    Balas via Email
+                </button>
+</div>
+</footer>
+</aside>
+</body></html>

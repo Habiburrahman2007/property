@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Prime Property - Messages Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        body { font-family: 'Geist', sans-serif; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#747878",
+                    "secondary-container": "#ffdc8e",
+                    "on-tertiary-fixed": "#410005",
+                    "surface-tint": "#5f5e5e",
+                    "on-secondary-container": "#795f1f",
+                    "surface": "#f9f9f9",
+                    "outline-variant": "#c4c7c7",
+                    "on-primary-fixed": "#1c1b1b",
+                    "inverse-on-surface": "#f0f1f1",
+                    "primary": "#000000",
+                    "on-tertiary-container": "#dc5856",
+                    "tertiary": "#000000",
+                    "on-primary-fixed-variant": "#474746",
+                    "tertiary-fixed": "#ffdad7",
+                    "on-secondary-fixed": "#251a00",
+                    "surface-bright": "#f9f9f9",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffdf9b",
+                    "secondary": "#745b1b",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary-fixed-variant": "#5a4302",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#1c1b1b",
+                    "secondary-fixed-dim": "#e4c278",
+                    "inverse-surface": "#2f3131",
+                    "background": "#f9f9f9",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#e5e2e1",
+                    "surface-dim": "#dadada",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "tertiary-container": "#410005",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f3f3f4",
+                    "on-primary-container": "#858383",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed-variant": "#891b20",
+                    "on-background": "#1a1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "container-margin": "64px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Geist"
+                    ],
+                    "display-lg-mobile": [
+                            "Geist"
+                    ],
+                    "title-sm": [
+                            "Geist"
+                    ],
+                    "headline-md-mobile": [
+                            "Geist"
+                    ],
+                    "headline-md": [
+                            "Geist"
+                    ],
+                    "body-sm": [
+                            "Geist"
+                    ],
+                    "code-sm": [
+                            "Geist"
+                    ],
+                    "body-lg": [
+                            "Geist"
+                    ],
+                    "label-uppercase": [
+                            "Geist"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "title-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "code-sm": [
+                            "13px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-uppercase": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen">
+<!-- SideNavBar -->
+<nav class="bg-surface text-primary font-display-lg text-display-lg font-body-lg text-body-lg font-label-uppercase text-label-uppercase h-screen w-64 fixed left-0 top-0 border-r border-outline-variant flex flex-col h-full py-xl px-md z-50">
+<!-- Header -->
+<div class="mb-xl px-sm">
+<h1 class="font-display-lg text-title-sm font-bold text-primary tracking-tight mb-xs">Prime Property</h1>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Internal Agent Portal</p>
+</div>
+<!-- CTA -->
+<button class="bg-primary text-on-primary w-full py-sm rounded px-md mb-xl hover:opacity-90 transition-opacity font-body-sm text-body-sm font-medium flex justify-center items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Message
+        </button>
+<!-- Tabs -->
+<div class="flex-1 flex flex-col gap-xs">
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors duration-200 ease-in-out flex items-center gap-md py-sm px-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">dashboard</span>
+<span class="font-body-sm text-body-sm font-medium group-hover:text-primary transition-colors">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors duration-200 ease-in-out flex items-center gap-md py-sm px-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">domain</span>
+<span class="font-body-sm text-body-sm font-medium group-hover:text-primary transition-colors">Properties</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors duration-200 ease-in-out flex items-center gap-md py-sm px-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">admin_panel_settings</span>
+<span class="font-body-sm text-body-sm font-medium group-hover:text-primary transition-colors">Admin Management</span>
+</a>
+<!-- Active Nav Item (Requested) -->
+<a class="text-primary font-bold border-r-2 border-primary hover:bg-surface-container transition-colors duration-200 ease-in-out flex items-center gap-md py-sm px-sm bg-surface-container-low rounded-l-lg -mr-md pr-[calc(1rem+2px)]" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<span class="font-body-sm text-body-sm font-semibold">Audit Logs</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="mt-auto flex flex-col gap-xs pt-xl border-t border-outline-variant">
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors duration-200 ease-in-out flex items-center gap-md py-sm px-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">settings</span>
+<span class="font-body-sm text-body-sm font-medium group-hover:text-primary transition-colors">Settings</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors duration-200 ease-in-out flex items-center gap-md py-sm px-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">logout</span>
+<span class="font-body-sm text-body-sm font-medium group-hover:text-primary transition-colors">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface text-primary font-headline-md text-headline-md font-body-lg text-body-lg docked full-width top-0 sticky z-40 border-b border-outline-variant flex justify-between items-center h-16 px-container-margin">
+<!-- Left: Brand & Search -->
+<div class="flex items-center gap-xl">
+<div class="font-display-lg text-title-sm font-black text-primary">Agent Portal</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-0 text-on-surface-variant text-[18px]">search</span>
+<input class="bg-transparent border-b border-outline-variant focus:border-primary text-primary pl-lg pr-sm py-xs focus:outline-none font-body-sm text-body-sm w-64 transition-colors placeholder:text-on-surface-variant" placeholder="Search..." type="text"/>
+</div>
+</div>
+<!-- Center: Links -->
+<nav class="flex gap-lg items-center h-full pt-1">
+<a class="text-primary border-b-2 border-primary h-full flex items-center hover:text-primary transition-all scale-95 active:opacity-80 font-body-sm text-body-sm font-medium" href="#">Messages</a>
+<a class="text-on-surface-variant h-full flex items-center hover:text-primary transition-all scale-95 active:opacity-80 font-body-sm text-body-sm font-medium border-b-2 border-transparent hover:border-outline-variant" href="#">Leads</a>
+<a class="text-on-surface-variant h-full flex items-center hover:text-primary transition-all scale-95 active:opacity-80 font-body-sm text-body-sm font-medium border-b-2 border-transparent hover:border-outline-variant" href="#">Calendar</a>
+</nav>
+<!-- Right: Actions & Profile -->
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-all scale-95 active:opacity-80 w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all scale-95 active:opacity-80 w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-xs"></div>
+<img alt="Agent Avatar" class="w-8 h-8 rounded-full ml-xs object-cover border border-outline-variant" data-alt="A professional headshot of a confident male real estate agent in his late 30s. He is wearing a sharp, tailored navy blue suit with a crisp white shirt, standing in a bright, modern luxury property setting. The lighting is high-key and natural, creating a clean, premium, light-mode aesthetic that aligns with a sophisticated corporate brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD902R9E97Y6g5fWRXUK0OKUx82AHIo-OVXvO6ex2brmf-PlCb9jnONuqh3IO7N1-OjfFX85gz0Rpbi4Fivmo-Te2NStQc_Rrlag_u0zTnay9JRO-J25eNdSwYRfChC8JpeuQXgduOEr1tJqb8c9zHFxcI96B2ODudvqONYxcsb0Sy_IUBMJQ-bDfNnF7rnsPegKPpa-kODM6xKNQqBE36eZoIiDdNSmYJgMCBS3PJfnA6k5DKYUuLYVYEVjusRWjoBhA5ramFiJkI"/>
+</div>
+</header>
+<!-- Page Canvas -->
+<main class="flex-1 px-container-margin py-xl">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-display-lg text-display-lg text-primary font-semibold mb-sm">Kotak Masuk</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manage your communications and client inquiries.</p>
+</div>
+<!-- Filters -->
+<div class="flex gap-sm">
+<div class="relative">
+<select class="appearance-none bg-surface border border-outline-variant text-primary font-body-sm text-body-sm py-sm pl-md pr-xl rounded hover:border-primary focus:outline-none focus:border-primary transition-colors cursor-pointer">
+<option value="all">All Messages</option>
+<option value="unread">Unread</option>
+<option value="read">Read</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
+</div>
+<button class="bg-surface border border-outline-variant text-primary font-body-sm text-body-sm py-sm px-md rounded hover:border-primary hover:bg-surface-container transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">filter_list</span> Filter
+                    </button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface rounded-lg border border-outline-variant overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="w-12 py-sm pl-md font-label-uppercase text-label-uppercase text-on-surface-variant font-semibold tracking-wider">Status</th>
+<th class="py-sm px-md font-label-uppercase text-label-uppercase text-on-surface-variant font-semibold tracking-wider">Sender Name</th>
+<th class="py-sm px-md font-label-uppercase text-label-uppercase text-on-surface-variant font-semibold tracking-wider">Email</th>
+<th class="py-sm px-md font-label-uppercase text-label-uppercase text-on-surface-variant font-semibold tracking-wider hidden lg:table-cell">Date &amp; Time</th>
+<th class="py-sm pr-md pl-md font-label-uppercase text-label-uppercase text-on-surface-variant font-semibold tracking-wider">Message Snippet</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface">
+<!-- Unread Row -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors cursor-pointer group bg-surface-container-lowest">
+<td class="py-md pl-md align-middle text-center">
+<div class="w-2 h-2 rounded-full bg-secondary-container mx-auto"></div>
+</td>
+<td class="py-md px-md align-middle font-semibold text-primary">Eleanor Vance</td>
+<td class="py-md px-md align-middle text-on-surface-variant">e.vance@hillhouse.com</td>
+<td class="py-md px-md align-middle text-on-surface-variant hidden lg:table-cell whitespace-nowrap">Oct 24, 09:15 AM</td>
+<td class="py-md pr-md pl-md align-middle text-primary max-w-[300px] truncate font-medium">Inquiry regarding the Penthouse listing on 5th Avenue. Is it still...</td>
+</tr>
+<!-- Read Row -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="py-md pl-md align-middle text-center">
+<div class="w-2 h-2 rounded-full bg-transparent mx-auto"></div>
+</td>
+<td class="py-md px-md align-middle text-on-surface-variant">Arthur Pendelton</td>
+<td class="py-md px-md align-middle text-on-surface-variant">arthur.p@investments.io</td>
+<td class="py-md px-md align-middle text-on-surface-variant hidden lg:table-cell whitespace-nowrap">Oct 23, 14:30 PM</td>
+<td class="py-md pr-md pl-md align-middle text-on-surface-variant max-w-[300px] truncate">Thank you for the tour yesterday. We are considering an offer on...</td>
+</tr>
+<!-- Unread Row -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors cursor-pointer group bg-surface-container-lowest">
+<td class="py-md pl-md align-middle text-center">
+<div class="w-2 h-2 rounded-full bg-secondary-container mx-auto"></div>
+</td>
+<td class="py-md px-md align-middle font-semibold text-primary">Sophia Sterling</td>
+<td class="py-md px-md align-middle text-on-surface-variant">s.sterling@globaltrust.com</td>
+<td class="py-md px-md align-middle text-on-surface-variant hidden lg:table-cell whitespace-nowrap">Oct 23, 11:05 AM</td>
+<td class="py-md pr-md pl-md align-middle text-primary max-w-[300px] truncate font-medium">Please send over the requested documents for the waterfront villa.</td>
+</tr>
+<!-- Read Row -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="py-md pl-md align-middle text-center">
+<div class="w-2 h-2 rounded-full bg-transparent mx-auto"></div>
+</td>
+<td class="py-md px-md align-middle text-on-surface-variant">Marcus Thorne</td>
+<td class="py-md px-md align-middle text-on-surface-variant">m.thorne@architecture.com</td>
+<td class="py-md px-md align-middle text-on-surface-variant hidden lg:table-cell whitespace-nowrap">Oct 22, 16:45 PM</td>
+<td class="py-md pr-md pl-md align-middle text-on-surface-variant max-w-[300px] truncate">The blueprints for the renovation have been approved by the board...</td>
+</tr>
+<!-- Read Row -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="py-md pl-md align-middle text-center">
+<div class="w-2 h-2 rounded-full bg-transparent mx-auto"></div>
+</td>
+<td class="py-md px-md align-middle text-on-surface-variant">Julian Blackwood</td>
+<td class="py-md px-md align-middle text-on-surface-variant">jblackwood@estates.net</td>
+<td class="py-md px-md align-middle text-on-surface-variant hidden lg:table-cell whitespace-nowrap">Oct 21, 08:20 AM</td>
+<td class="py-md pr-md pl-md align-middle text-on-surface-variant max-w-[300px] truncate">Can we reschedule our meeting for next Tuesday? Something urgent...</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination (Implied for list view) -->
+<div class="mt-md flex justify-between items-center text-on-surface-variant font-body-sm text-body-sm">
+<span>Showing 1 to 5 of 42 entries</span>
+<div class="flex gap-xs">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface hover:text-primary transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface hover:text-primary transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface hover:text-primary transition-colors">3</button>
+<span class="px-xs flex items-end pb-1">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

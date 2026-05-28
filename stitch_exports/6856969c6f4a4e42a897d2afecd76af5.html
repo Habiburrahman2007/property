@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restore Confirmation Modal - Prime Property</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Geist -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#444748",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed-dim": "#e4c278",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-tertiary-fixed": "#410005",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary-fixed": "#251a00",
+                        "tertiary-fixed": "#ffdad7",
+                        "on-tertiary-fixed-variant": "#891b20",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#410005",
+                        "secondary-fixed": "#ffdf9b",
+                        "on-background": "#1a1c1c",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "on-tertiary-container": "#dc5856",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-surface": "#2f3131",
+                        "error": "#ba1a1a",
+                        "surface": "#f9f9f9",
+                        "background": "#f9f9f9",
+                        "inverse-primary": "#c8c6c5",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-tint": "#5f5e5e",
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-fixed-variant": "#5a4302",
+                        "surface-container-low": "#f3f3f4",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-variant": "#e2e2e2",
+                        "surface-dim": "#dadada",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ffdc8e",
+                        "primary": "#000000",
+                        "surface-container": "#eeeeee",
+                        "secondary": "#745b1b",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-container": "#795f1f",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline": "#747878",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "tertiary": "#000000",
+                        "on-surface": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "container-margin": "64px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Geist"],
+                        "label-uppercase": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "code-sm": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "headline-md-mobile": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "title-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-uppercase": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "code-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-md-mobile": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "title-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-lg text-body-lg antialiased overflow-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- App Layout Shell -->
+<div class="flex h-screen w-full relative">
+<!-- Background Image for the Dashboard Context -->
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none" data-alt="A meticulously designed modern living room in a luxury architectural home, featuring expansive floor-to-ceiling windows that flood the space with soft, natural white light. The interior styling is minimalist and high-end, utilizing structural concrete, matte black steel accents, and pristine white surfaces. A subtle sense of grand scale and sophisticated elegance permeates the scene, aligning with a premium real estate aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0GkbW-E35N-Ar14AnqvS6aaGxn7BLis9tV3Mer7EETunkd313RaGqcs85kSyUAyV8wv09fy1zm9k6Dss9dFybUqSxsE1TNo79KTXUynTyfMjvKT43AlY06Hc-vpfh5yv5eyHE5VfStpEBeoEyO6CH1Gi6FQRcPLskUv9AXnfaazi3OcR0eo9NPuaAdrOlcXTvVr4pru1hkOGGPnKuUtLPdz_lbQwE_16EQrT9NxpTKqOJ2Ob1jYmb2-c7rZKIOxBX4wJDbNwN3KY'); background-size: cover; background-position: center;"></div>
+<!-- SideNavBar (from JSON) -->
+<nav class="flex flex-col h-full py-xl bg-surface-container dark:bg-surface-dim h-screen w-64 fixed left-0 top-0 z-10 hidden md:flex border-r border-outline-variant shadow-sm">
+<div class="px-md mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">Prime Property</h1>
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-xs">Superadmin Portal</p>
+</div>
+<div class="px-md mb-lg">
+<button class="w-full py-sm px-md bg-secondary text-on-secondary font-code-sm text-code-sm rounded flex items-center justify-center gap-sm hover:bg-secondary-fixed-dim transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                    New Listing
+                </button>
+</div>
+<ul class="flex flex-col flex-1 space-y-sm">
+<!-- Dashboard -->
+<li>
+<a class="group flex items-center space-x-md px-md py-sm text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-uppercase text-label-uppercase">Dashboard</span>
+</a>
+</li>
+<!-- Properties (Active context for the modal) -->
+<li>
+<a class="group flex items-center space-x-md px-md py-sm text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">domain</span>
+<span class="font-label-uppercase text-label-uppercase">Properties</span>
+</a>
+</li>
+<!-- Admin Management -->
+<li>
+<a class="group flex items-center space-x-md px-md py-sm text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">supervisor_account</span>
+<span class="font-label-uppercase text-label-uppercase">Admin Management</span>
+</a>
+</li>
+<!-- Audit Logs -->
+<li>
+<a class="group flex items-center space-x-md px-md py-sm text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-label-uppercase text-label-uppercase">Audit Logs</span>
+</a>
+</li>
+<!-- Reports -->
+<li>
+<a class="group flex items-center space-x-md px-md py-sm text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-uppercase text-label-uppercase">Reports</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto pt-lg border-t border-outline-variant">
+<ul class="flex flex-col space-y-sm">
+<li>
+<a class="group flex items-center space-x-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-uppercase text-label-uppercase">Support</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center space-x-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-uppercase text-label-uppercase">Logout</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-64 relative z-10">
+<!-- TopNavBar (from JSON) -->
+<header class="flex justify-between items-center px-container-margin w-full bg-surface dark:bg-surface h-16 border-b border-outline-variant dark:border-outline">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                    Prime Property Superadmin
+                </div>
+<div class="flex items-center gap-lg">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-xl pr-md py-sm bg-surface-container-low border-b border-primary border-t-0 border-l-0 border-r-0 focus:ring-0 focus:border-secondary transition-colors font-body-sm text-body-sm text-on-surface w-64 placeholder-outline" placeholder="Search archive..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant ml-sm">
+<img alt="Superadmin Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a confident, well-dressed executive in a sharp dark suit. The lighting is crisp, neutral studio lighting against a clean white background. The image projects authority, trust, and high-end corporate elegance, suitable for a superadmin profile in a luxury real estate application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQibWg1x6OKA1TPBRyU5Pek5tHMz5mJMXlhFx7byL7nzs6aGDcnC5HfhFJnNQ6uFjg3L7ZPc_oUfzwd1INMutMghPtGqELkrrpOFrtn-YDH3Zl3Rxm6OSrzw0W4ry0kkYQPDd_pMWw0xasqxAb2sMXeqSOfVQyvQIQjlTxKO0hvlVh9bhqPy5Xz8848C23U-Cpm276AAFg_nVtgPaUzLQohk8IkFWTN1VoVJQf9EoovPVYUB_djFTIDKsUXWc_AnNMTuNtYP8jsnA"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content (Simulated & Blurred for Modal Context) -->
+<div class="p-container-margin flex-1">
+<div class="mb-xl">
+<h2 class="font-display-lg text-display-lg text-primary tracking-tight mb-xs">Archive Dashboard</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage previously deactivated listings and records.</p>
+</div>
+<!-- Bento Grid Simulation -->
+<div class="grid grid-cols-12 gap-gutter opacity-40 blur-[2px] pointer-events-none select-none">
+<div class="col-span-8 bg-surface border border-outline-variant rounded-lg p-xl h-96 shadow-sm">
+<!-- Simulated table rows -->
+<div class="h-10 bg-surface-container-low rounded-sm mb-md w-full"></div>
+<div class="h-16 bg-surface-container-lowest border-b border-outline-variant flex items-center px-md mb-sm"><div class="w-12 h-12 bg-surface-container-high rounded mr-md"></div><div class="h-4 w-48 bg-surface-container-high rounded-sm"></div></div>
+<div class="h-16 bg-surface-container-lowest border-b border-outline-variant flex items-center px-md mb-sm"><div class="w-12 h-12 bg-surface-container-high rounded mr-md"></div><div class="h-4 w-32 bg-surface-container-high rounded-sm"></div></div>
+<div class="h-16 bg-surface-container-lowest border-b border-outline-variant flex items-center px-md mb-sm"><div class="w-12 h-12 bg-surface-container-high rounded mr-md"></div><div class="h-4 w-56 bg-surface-container-high rounded-sm"></div></div>
+</div>
+<div class="col-span-4 flex flex-col gap-gutter">
+<div class="bg-surface border border-outline-variant rounded-lg p-xl flex-1 shadow-sm">
+<div class="h-6 w-32 bg-surface-container-high rounded-sm mb-lg"></div>
+<div class="h-32 w-32 rounded-full border-4 border-surface-container-low mx-auto"></div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-lg p-xl flex-1 shadow-sm">
+<div class="h-6 w-24 bg-surface-container-high rounded-sm mb-md"></div>
+<div class="h-4 w-full bg-surface-container-low rounded-sm mb-sm"></div>
+<div class="h-4 w-3/4 bg-surface-container-low rounded-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- MODAL OVERLAY -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-primary/40 backdrop-blur-[1px] transition-opacity duration-300">
+<!-- MODAL CARD -->
+<!-- Using high-precision sharp shadow: shadow-[0_8px_30px_rgb(0,0,0,0.12)] approximated by standard utility plus border -->
+<div class="bg-surface rounded border border-outline-variant w-[480px] max-w-[90vw] p-xl shadow-2xl transform transition-all duration-300 scale-100 opacity-100 relative overflow-hidden">
+<!-- Subtle Top Accent line (Optional for luxury feel) -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-secondary-fixed-dim"></div>
+<div class="flex flex-col">
+<!-- Icon -->
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center mb-md border border-secondary-container/30">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 0, 'wght' 300;">restore_from_trash</span>
+</div>
+<!-- Title & Content -->
+<h3 class="font-title-sm text-title-sm text-primary mb-sm font-medium tracking-tight">Konfirmasi Pemulihan</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl leading-relaxed">
+                        Kembalikan properti <span class="font-semibold text-primary">Villa Senopati A1</span> ke daftar listing aktif?
+                    </p>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-md pt-md mt-sm border-t border-surface-container-high">
+<button class="px-lg py-sm rounded bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-code-sm text-code-sm hover:bg-surface-container hover:text-primary transition-all duration-200">
+                            Batal
+                        </button>
+<!-- Primary Action: Accent Gold mapped to theme's secondary colors -->
+<button class="px-lg py-sm rounded bg-secondary text-on-secondary font-code-sm text-code-sm hover:bg-[#5a4614] shadow-sm hover:shadow transition-all duration-200 flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                            Pulihkan
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
