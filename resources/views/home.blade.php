@@ -6,7 +6,7 @@
 <!-- Hero Section -->
 <section class="relative w-full h-[819px] min-h-[600px] flex items-center justify-center bg-primary overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img alt="Luxury Villa" class="w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="A breathtaking twilight view of a highly modern, minimalist luxury villa with expansive glass walls, overlooking an infinity pool and a serene ocean vista." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeqdev7AtFn3yK1QWjpV9JYyN9NqtJcXeRfMtwkbEGZejaKTcbAx944w7igAgbw2wShVj-iE0PoHW6_OERzwnCJ1RIimogo2FCbb2g7Ps4TvdrGMhBJKRM2iHwXL6MEH1gFgUL-5CvMW8K727rYg-wbAR_QFr8_l9vWb5-JJKijyR1fUIR7t0Bp2U2RJM3zb0isn6Biadu76NXT2GI9bPl_C1SVCtbiJgOxGH6OaSrFTGK3QOtGr0SqMzrLk2behVAqt6KltxOJxU"/>
+        <img alt="Luxury Villa" class="w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="A breathtaking twilight view of a highly modern, minimalist luxury villa with expansive glass walls, overlooking an infinity pool and a serene ocean vista." src="{{ asset('assets/img/hero-luxury-villa.jpg') }}" fetchpriority="high" loading="eager"/>
     </div>
     <div class="relative z-10 text-center px-md md:px-container-margin max-w-4xl mx-auto flex flex-col items-center">
         <span class="font-label-uppercase text-label-uppercase text-secondary tracking-[0.2em] mb-xl block">Prime Property</span>
