@@ -350,7 +350,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#111313] text-neutral-300 border-t border-neutral-800/80 full-width mt-auto relative overflow-hidden">
+    <footer class="bg-[#111313] text-neutral-300 border-t border-neutral-800/80 w-full mt-auto relative overflow-hidden">
         <!-- Subtle gold accent line at the top of footer -->
         <div class="h-[2px] bg-gradient-to-r from-transparent via-[#C9A961]/70 to-transparent w-full"></div>
         
