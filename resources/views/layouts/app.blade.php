@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>@yield('title', 'Prime Property - Luxury Real Estate')</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}"/>
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -251,6 +252,26 @@
         body:not(.is-home) #public-navbar .nav-brand {
             color: #745b1b !important;
         }
+
+        /* Cinematic zoom effect for hero image */
+        @keyframes zoomBackground {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+        .animate-zoom-image {
+            animation: zoomBackground 20s ease-in-out infinite;
+        }
+
+        /* Bouncing animation for scroll down indicator */
+        @keyframes scrollBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+        .animate-scroll-bounce {
+            animation: scrollBounce 2s infinite;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col antialiased {{ request()->is('/') ? 'is-home' : '' }}">
@@ -329,34 +350,87 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline full-width mt-auto">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-md md:px-container-margin py-xl max-w-7xl mx-auto">
-            <div class="md:col-span-4 flex flex-col justify-between">
+    <footer class="bg-[#111313] text-neutral-300 border-t border-neutral-800/80 full-width mt-auto relative overflow-hidden">
+        <!-- Subtle gold accent line at the top of footer -->
+        <div class="h-[2px] bg-gradient-to-r from-transparent via-[#C9A961]/70 to-transparent w-full"></div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-xl px-md md:px-container-margin py-xl max-w-7xl mx-auto">
+            <!-- Brand & Info Column -->
+            <div class="md:col-span-5 flex flex-col justify-between gap-md">
                 <div>
-                    <div class="flex items-center gap-2 text-headline-md-mobile font-headline-md-mobile font-bold text-primary dark:text-inverse-primary mb-md">
+                    <div class="flex items-center gap-2 text-headline-md-mobile font-headline-md-mobile font-bold text-white mb-md">
                         <img src="{{ asset('assets/img/logo.png') }}" alt="Prime Property Logo" class="h-9 w-auto object-contain">
-                        <span>Prime Property</span>
+                        <span class="tracking-tight">Prime <span class="text-[#C9A961]">Property</span></span>
                     </div>
-                    <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs mb-lg">
-                        Elevating the standard of luxury real estate through precision, exclusivity, and unwavering dedication.
+                    <p class="font-body-sm text-body-sm text-neutral-400 max-w-sm mb-lg leading-relaxed">
+                        Elevating the standard of luxury real estate through precision, exclusivity, and unwavering dedication. Discover your dream home in Jakarta's prime locations.
                     </p>
+                    <!-- Social Media Links -->
+                    <div class="flex items-center gap-4 mt-4">
+                        <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-full bg-neutral-800/50 hover:bg-[#C9A961] text-neutral-400 hover:text-[#111313] flex items-center justify-center transition-all duration-300 shadow-sm border border-neutral-700/30 hover:border-transparent" aria-label="Instagram">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://wa.me/62812345678" target="_blank" class="w-9 h-9 rounded-full bg-neutral-800/50 hover:bg-[#C9A961] text-neutral-400 hover:text-[#111313] flex items-center justify-center transition-all duration-300 shadow-sm border border-neutral-700/30 hover:border-transparent" aria-label="WhatsApp">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 2.016 14.056.99 11.433.99c-5.436 0-9.862 4.37-9.865 9.801 0 1.738.48 3.424 1.39 4.925L1.922 20.2l4.725-1.226zM17.5 15c-.29-.146-1.72-.848-1.986-.944-.266-.097-.46-.146-.653.146-.193.29-.748.944-.917 1.138-.17.193-.338.217-.628.072-2.316-1.16-3.83-2.062-5.326-4.628-.396-.68-.073-1.047.224-1.344.269-.267.599-.699.899-1.048.3-.349.4-.598.599-.997.2-.399.1-.749-.05-1.048-.15-.299-1.481-3.568-2.03-4.894-.534-1.288-1.077-1.114-1.482-1.136-.266-.014-.57-.014-.874-.014-.304 0-.799.114-1.218.571-.419.456-1.6 1.563-1.6 3.81s1.635 4.417 1.865 4.721c.23.304 3.218 4.914 7.796 6.89.858.369 1.606.608 2.155.782.86.273 1.64.235 2.259.143.69-.103 2.126-.869 2.425-1.71.3-.84.3-1.563.21-1.71-.09-.146-.337-.243-.627-.39z"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="font-body-sm text-body-sm text-on-surface-variant mt-auto">
-                    © 2026 Prime Property | V 1.0
+                <!-- Desktop Copyright -->
+                <div class="font-body-sm text-[13px] text-neutral-500 hidden md:block">
+                    © 2026 Prime Property. All rights reserved.
                 </div>
             </div>
-            <div class="md:col-span-8 flex flex-wrap gap-xl md:justify-end mt-xl md:mt-0">
-                <div class="flex flex-col gap-sm">
-                    <p class="font-label-uppercase text-label-uppercase text-primary mb-xs">Navigation</p>
-                    <a class="{{ request()->is('/') ? 'text-primary underline font-bold' : 'text-on-surface-variant' }} font-body-sm text-body-sm hover:text-secondary transition-colors duration-200" href="{{ url('/') }}">Home</a>
-                    <a class="{{ request()->is('about') ? 'text-primary underline font-bold' : 'text-on-surface-variant' }} font-body-sm text-body-sm hover:text-secondary transition-colors duration-200" href="{{ url('/about') }}">About Us</a>
-                    <a class="{{ request()->is('contact') ? 'text-primary underline font-bold' : 'text-on-surface-variant' }} font-body-sm text-body-sm hover:text-secondary transition-colors duration-200" href="{{ url('/contact') }}">Contact Us</a>
+            
+            <!-- Navigation Column -->
+            <div class="md:col-span-3 flex flex-col gap-md">
+                <h3 class="font-label-uppercase text-label-uppercase text-white tracking-widest border-b border-neutral-800 pb-sm font-semibold">
+                    Navigation
+                </h3>
+                <ul class="flex flex-col gap-sm">
+                    <li>
+                        <a class="{{ request()->is('/') ? 'text-[#C9A961] font-bold' : 'text-neutral-400' }} font-body-sm text-body-sm hover:text-white transition-colors duration-200 flex items-center gap-xs" href="{{ url('/') }}">
+                            <span class="material-symbols-outlined text-[14px]">chevron_right</span> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ request()->is('about') ? 'text-[#C9A961] font-bold' : 'text-neutral-400' }} font-body-sm text-body-sm hover:text-white transition-colors duration-200 flex items-center gap-xs" href="{{ url('/about') }}">
+                            <span class="material-symbols-outlined text-[14px]">chevron_right</span> About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ request()->is('contact') ? 'text-[#C9A961] font-bold' : 'text-neutral-400' }} font-body-sm text-body-sm hover:text-white transition-colors duration-200 flex items-center gap-xs" href="{{ url('/contact') }}">
+                            <span class="material-symbols-outlined text-[14px]">chevron_right</span> Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Office Column -->
+            <div class="md:col-span-4 flex flex-col gap-md">
+                <h3 class="font-label-uppercase text-label-uppercase text-white tracking-widest border-b border-neutral-800 pb-sm font-semibold">
+                    Contact Office
+                </h3>
+                <div class="flex flex-col gap-md text-neutral-400 font-body-sm text-body-sm">
+                    <div class="flex items-start gap-sm">
+                        <span class="material-symbols-outlined text-[#C9A961] text-[18px] mt-0.5">location_on</span>
+                        <span>Jl. Sudirman No. 123<br/>Jakarta, Indonesia</span>
+                    </div>
+                    <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-[#C9A961] text-[18px]">call</span>
+                        <a href="tel:+622155551234" class="hover:text-white transition-colors">+62 21 5555 1234</a>
+                    </div>
+                    <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-[#C9A961] text-[18px]">mail</span>
+                        <a href="mailto:info@primeproperty.co.id" class="hover:text-white transition-colors">info@primeproperty.co.id</a>
+                    </div>
                 </div>
-                <div class="flex flex-col gap-sm md:ml-xl">
-                    <p class="font-label-uppercase text-label-uppercase text-primary mb-xs">Legal</p>
-                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Privacy Policy</a>
-                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Terms of Service</a>
-                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Copyright -->
+        <div class="border-t border-neutral-800/60 mt-xl pt-lg pb-md px-md md:px-container-margin max-w-7xl mx-auto flex flex-col justify-between items-center gap-sm md:hidden text-center">
+            <div class="font-body-sm text-[13px] text-neutral-500">
+                © 2026 Prime Property. All rights reserved.
             </div>
         </div>
     </footer>

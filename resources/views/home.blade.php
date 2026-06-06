@@ -4,20 +4,106 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="relative w-full h-[819px] min-h-[600px] flex items-center justify-center bg-primary overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img alt="Luxury Villa" class="w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="A breathtaking twilight view of a highly modern, minimalist luxury villa with expansive glass walls, overlooking an infinity pool and a serene ocean vista." src="{{ asset('assets/img/hero-luxury-villa.jpg') }}" fetchpriority="high" loading="eager"/>
+<section class="relative w-full h-[880px] min-h-[700px] flex items-center justify-center bg-[#111313] overflow-hidden">
+    <!-- Cinematic Zoom Background Image -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+        <img alt="Luxury Villa" class="w-full h-full object-cover opacity-45 mix-blend-overlay scale-100 animate-zoom-image" data-alt="A breathtaking twilight view of a highly modern, minimalist luxury villa with expansive glass walls, overlooking an infinity pool and a serene ocean vista." src="{{ asset('assets/img/hero-luxury-villa.jpg') }}" fetchpriority="high" loading="eager"/>
+        <!-- Double Dark Overlay for maximum contrast and blending -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#111313]/60 via-[#111313]/85 to-[#111313] z-10"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-[#111313]/30 to-[#111313]/90 z-10"></div>
     </div>
-    <div class="relative z-10 text-center px-md md:px-container-margin max-w-4xl mx-auto flex flex-col items-center">
-        <span class="font-label-uppercase text-label-uppercase text-secondary tracking-[0.2em] mb-xl block">Prime Property</span>
-        <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-primary mb-md font-bold leading-tight">
-            Your Vision, Our Expertise
+    
+    <!-- Hero Contents -->
+    <div class="relative z-20 text-center px-md md:px-container-margin max-w-5xl mx-auto flex flex-col items-center justify-center h-full pt-16">
+        <!-- Luxury Brand Badge -->
+        <div class="inline-flex items-center gap-2 px-md py-sm bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-md animate-fade-in shadow-inner">
+            <span class="material-symbols-outlined text-[#C9A961] text-[16px]">workspace_premium</span>
+            <span class="font-label-uppercase text-[10px] tracking-[0.25em] text-[#C9A961] font-bold">Experience Luxury Real Estate</span>
+        </div>
+        
+        <!-- Premium Heading -->
+        <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-[54px] text-white mb-md font-bold leading-tight tracking-tight max-w-4xl animate-slide-up" style="text-shadow: 0 4px 20px rgba(0,0,0,0.6);">
+            Where Luxury Meets <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF9B] via-[#C9A961] to-[#FFDF9B]">Exclusivity</span>
         </h1>
-        <p class="font-body-lg text-body-lg text-on-primary/80 mb-xl max-w-2xl">
-            Discover luxury living in the most prestigious locations.
+        
+        <!-- Elegant Subtitle -->
+        <p class="font-body-lg text-body-lg text-neutral-300 mb-xl max-w-2xl leading-relaxed animate-slide-up" style="text-shadow: 0 2px 10px rgba(0,0,0,0.4);">
+            Discover our curated portfolio of prestigious estates and premium commercial hubs in Jakarta's most sought-after neighborhoods.
         </p>
-        <a href="#featured-properties" class="bg-secondary text-on-primary font-label-uppercase text-label-uppercase px-xl py-md rounded transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-secondary/20 inline-block">
-            See Properties
+
+        <!-- Glassmorphic Floating Search Card -->
+        <div class="w-full max-w-4xl bg-white/10 dark:bg-black/35 backdrop-blur-xl border border-white/15 dark:border-white/10 p-lg rounded-2xl shadow-2xl flex flex-col md:flex-row gap-lg md:items-end mt-sm text-left animate-slide-up">
+            <!-- Filter Kawasan -->
+            <div class="flex-1 flex flex-col gap-2">
+                <label for="filter-kawasan" class="font-label-uppercase text-[10px] tracking-wider text-neutral-300 font-bold flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-[#C9A961] text-[14px]">location_on</span>
+                    <span>LOKASI</span>
+                </label>
+                <div class="relative">
+                    <select id="filter-kawasan" class="w-full bg-neutral-900/60 text-white font-body-sm text-sm px-md py-sm rounded-xl border border-white/10 focus:border-[#C9A961] focus:ring-0 transition-colors appearance-none pr-8 cursor-pointer">
+                        <option value="semua" class="bg-[#111313]">Semua Lokasi</option>
+                        <option value="Menteng" class="bg-[#111313]">Menteng (Jakarta Pusat)</option>
+                        <option value="Senopati" class="bg-[#111313]">Senopati (Jakarta Selatan)</option>
+                        <option value="Kebayoran Baru" class="bg-[#111313]">Kebayoran Baru</option>
+                        <option value="Pondok Indah" class="bg-[#111313]">Pondok Indah</option>
+                        <option value="Kemang" class="bg-[#111313]">Kemang</option>
+                        <option value="BSD City" class="bg-[#111313]">BSD City (Tangerang)</option>
+                        <option value="Gading Serpong" class="bg-[#111313]">Gading Serpong</option>
+                        <option value="Ubud" class="bg-[#111313]">Ubud (Bali)</option>
+                        <option value="Seminyak" class="bg-[#111313]">Seminyak (Bali)</option>
+                    </select>
+                    <span class="material-symbols-outlined text-neutral-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[18px]">expand_more</span>
+                </div>
+            </div>
+
+            <!-- Filter Tipe -->
+            <div class="flex-1 flex flex-col gap-2">
+                <label for="filter-tipe" class="font-label-uppercase text-[10px] tracking-wider text-neutral-300 font-bold flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-[#C9A961] text-[14px]">domain</span>
+                    <span>TIPE PROPERTI</span>
+                </label>
+                <div class="relative">
+                    <select id="filter-tipe" class="w-full bg-neutral-900/60 text-white font-body-sm text-sm px-md py-sm rounded-xl border border-white/10 focus:border-[#C9A961] focus:ring-0 transition-colors appearance-none pr-8 cursor-pointer">
+                        <option value="semua" class="bg-[#111313]">Semua Tipe</option>
+                        <option value="Villa" class="bg-[#111313]">Villa (Hunian Mewah)</option>
+                        <option value="Ruko" class="bg-[#111313]">Ruko (Komersial)</option>
+                    </select>
+                    <span class="material-symbols-outlined text-neutral-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[18px]">expand_more</span>
+                </div>
+            </div>
+
+            <!-- Filter Harga Maksimum -->
+            <div class="flex-1 flex flex-col gap-2">
+                <label for="filter-price" class="font-label-uppercase text-[10px] tracking-wider text-neutral-300 font-bold flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-[#C9A961] text-[14px]">payments</span>
+                    <span>HARGA MAKSIMUM</span>
+                </label>
+                <div class="relative">
+                    <select id="filter-price" class="w-full bg-neutral-900/60 text-white font-body-sm text-sm px-md py-sm rounded-xl border border-white/10 focus:border-[#C9A961] focus:ring-0 transition-colors appearance-none pr-8 cursor-pointer">
+                        <option value="semua" class="bg-[#111313]">Semua Harga</option>
+                        <option value="15000000000" class="bg-[#111313]">s/d Rp 15 Miliar</option>
+                        <option value="30000000000" class="bg-[#111313]">s/d Rp 30 Miliar</option>
+                        <option value="50000000000" class="bg-[#111313]">s/d Rp 50 Miliar</option>
+                        <option value="80000000000" class="bg-[#111313]">s/d Rp 80 Miliar</option>
+                        <option value="100000000000" class="bg-[#111313]">s/d Rp 100 Miliar</option>
+                    </select>
+                    <span class="material-symbols-outlined text-neutral-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[18px]">expand_more</span>
+                </div>
+            </div>
+
+            <!-- Search Button -->
+            <div class="flex-shrink-0">
+                <button onclick="applyHeroFilter()" class="w-full md:w-auto h-[38px] px-xl bg-[#C9A961] hover:bg-[#ffdf9b] text-neutral-900 font-label-uppercase text-label-uppercase font-bold rounded-xl transition-all duration-300 shadow-lg shadow-[#C9A961]/20 flex items-center justify-center gap-xs cursor-pointer active:scale-95 border-0">
+                    <span class="material-symbols-outlined text-[18px] font-bold">search</span>
+                    <span>Cari Properti</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bouncing Scroll Down Indicator -->
+        <a href="#featured-properties" class="absolute bottom-6 flex flex-col items-center gap-sm text-neutral-400 hover:text-white transition-colors animate-scroll-bounce">
+            <span class="font-label-uppercase text-[9px] tracking-[0.2em] uppercase font-bold opacity-80">Scroll Down</span>
+            <span class="material-symbols-outlined text-[20px] text-[#C9A961]">keyboard_double_arrow_down</span>
         </a>
     </div>
 </section>
@@ -30,7 +116,7 @@
             <p class="font-body-lg text-body-lg text-on-surface-variant">Exclusive listings curated for discerning buyers.</p>
         </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+    <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
         @forelse($properties as $property)
             @php
                 $isAvailable = $property->status === 'in stock';
@@ -39,7 +125,10 @@
                     : (is_string($property->kawasan) ? $property->kawasan : '-');
             @endphp
             <!-- Property Card -->
-            <div class="group bg-surface-container-lowest border border-[#C9A961]/25 hover:border-[#C9A961]/60 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col animate-card p-lg">
+            <div class="property-card group bg-surface-container-lowest border border-[#C9A961]/25 hover:border-[#C9A961]/60 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col animate-card p-lg"
+                 data-kawasan="{{ is_array($property->kawasan) ? implode(',', $property->kawasan) : $property->kawasan }}"
+                 data-tipe="{{ $property->tipe }}"
+                 data-price="{{ $property->price }}">
                 <!-- Header: Status Badge & Area info -->
                 <div class="flex justify-between items-center mb-sm shrink-0">
                     @if($isAvailable)
@@ -101,7 +190,10 @@
             </div>
         @endforelse
     </div>
-
+    <!-- Client-side filter no results message -->
+    <div id="no-properties-message" class="hidden py-xl text-center text-on-surface-variant italic w-full">
+        Tidak ada properti yang cocok dengan kriteria pencarian Anda. Silakan coba filter lain.
+    </div>
 </section>
 
 <!-- Why Prime Property -->
@@ -384,6 +476,66 @@
             backdrop.classList.add('hidden');
             backdrop.classList.remove('flex');
         }, 300);
+    }
+
+    // Client-side quick filter logic
+    function applyHeroFilter() {
+        const selectedKawasan = document.getElementById('filter-kawasan').value;
+        const selectedTipe = document.getElementById('filter-tipe').value;
+        const selectedPriceMax = document.getElementById('filter-price').value;
+
+        const cards = document.querySelectorAll('.property-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const kawasan = card.getAttribute('data-kawasan') || '';
+            const tipe = card.getAttribute('data-tipe') || '';
+            const price = parseFloat(card.getAttribute('data-price') || '0');
+
+            let match = true;
+
+            // Kawasan filter
+            if (selectedKawasan && selectedKawasan !== 'semua') {
+                if (!kawasan.toLowerCase().includes(selectedKawasan.toLowerCase())) {
+                    match = false;
+                }
+            }
+
+            // Tipe filter
+            if (selectedTipe && selectedTipe !== 'semua') {
+                if (tipe.toLowerCase() !== selectedTipe.toLowerCase()) {
+                    match = false;
+                }
+            }
+
+            // Price filter
+            if (selectedPriceMax && selectedPriceMax !== 'semua') {
+                const priceLimit = parseFloat(selectedPriceMax);
+                if (price > priceLimit) {
+                    match = false;
+                }
+            }
+
+            if (match) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        const noMsg = document.getElementById('no-properties-message');
+        if (visibleCount === 0) {
+            if (noMsg) noMsg.classList.remove('hidden');
+        } else {
+            if (noMsg) noMsg.classList.add('hidden');
+        }
+
+        // Smooth scroll to featured properties section
+        const targetSection = document.getElementById('featured-properties');
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 </script>
 @endsection
